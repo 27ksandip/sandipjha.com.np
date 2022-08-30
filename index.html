@@ -1,24 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Sandip Jha</title>
+    <title>Welcome To Sandip Jha</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap"
-      rel="stylesheet"
-    />
+
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
     />
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script type="text/javascript" src="css\js\jquery-3.2.1.minn.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
 
     <!-- Font Awesome -->
     <link
@@ -39,75 +35,438 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <section id="about">
+    <section>
       <div class="container">
-        <div class="row">
-          <div class="col-md-5">
-           <div class="left-side">
-             <h5>Who I am</h5>
-           <p>I am Sandip Jha. Software Developer. I love coding and learning new things. My passion lies in building web applications using PHP, Laravel Framework ,JavaScript,Bootstrap, jQuery, NodeJS, MySQL, Git, etc.<p>
-
-<p>I started my career in a Software company in 2017 as a Intern Software Developer than after i promoted as a Junior Software Developer. After worked there for 2 years In 2019 I joined a software company as a name Gamenic where I worked as a full stack developer in verity of languages Like: Laravel , Wordpres, Vue.js, React.js & Bootstrap etc. </p>
-
-<p>I am a self-taught programmer who loves to code. I believe that everyone has the potential to become a great coder. If you want to learn programming, I recommend you to first improve your passionate in programming.</p>
-           </div>
-          </div>
-          <div class="col-md-7">
+        <div class="row_wrapp">
+          <div class="content-inner">
             <div class="row">
-              <div class="col-md-6">
-                <div class="ab-item">
-                  <img class="icon-img" src="images/taj_mahal_afp.jpg" />
-                  <h5>BackEnd Development</h5>
-                  
-                  <p>
-                    I am exprienced In php, Laravel Framework, Node Js & Agro
-                  </p>
-                  
+              <div class="col-md-12">
+                <div class="introduction section-heigh" id="intro">
+                  <img src="images/sandip-top-img.jpg" />
+                  <h2>Sandip Jha</h2>
+                  <h5 style="font-weight: 300; text-transform: uppercase">
+                    Web & Mobile App Developer
+                  </h5>
+                  <a class="btn btn-primary" href="#about"
+                    >View More <i class="fa-solid fa-arrow-down"></i
+                  ></a>
+                </div>
+                <div class="about section-heigh" id="about">
+                  <div class="row">
+                    <h2>About Me</h2>
+                    <div class="col-md-5">
+                      <div class="ab-img">
+                        <img src="images/sandip.jpg" />
+                      </div>
+                    </div>
+                    <div class="col-md-7">
+                      <div class="left-side">
+                        <!-- <h5>Who I am</h5> -->
+                        <p>
+                          I am Sandip Jha. Software Developer. I love coding and
+                          learning new things. My passion lies in building web
+                          applications using PHP, Laravel Framework
+                          ,JavaScript,Bootstrap, jQuery, NodeJS, MySQL, Git,
+                          etc.
+                        </p>
+                        <p></p>
+                        <p>
+                          I started my career in a Software company in 2017 as a
+                          Intern Software Developer than after i promoted as a
+                          Junior Software Developer. After worked there for 2
+                          years In 2019 I joined a software company as a name
+                          Gamenic where I worked as a full stack developer in
+                          verity of languages Like: Laravel , Wordpres, Vue.js,
+                          React.js & Bootstrap etc.
+                        </p>
+                        <p>
+                          I am a self-taught programmer who loves to code. I
+                          believe that everyone has the potential to become a
+                          great coder. If you want to learn programming, I
+                          recommend you to first improve your passionate in
+                          programming.  <span>
+                            <i onclick="readText()" class="v-speak fa-solid fa-volume-high"></i>
+                            <i onclick="readTextCancel()" class="fa-solid fa-volume-xmark v-mute"></i>
+                          </span>
+                        </p>
+                       
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="skills section-heigh" id="skills">
+                  <div class="row">
+                    <h2>Skills & Experienced</h2>
+                    <div class="col-md-6">
+                      <div class="ab-item">
+                        <img class="icon-img" src="images/backendpng.png" />
+                        <h5>BackEnd Development</h5>
+                        <p>
+                          I am exprienced In php, Laravel Framework, Node Js &
+                          Agro
+                        </p>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="ab-item">
+                        <img class="icon-img" src="images/frontend-dev.jpeg" />
+                        <h5>Frontend Development</h5>
+                        <p>
+                          A small river named Duden flows by their place and
+                          supplies it with the necessary
+                        </p>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="ab-item">
+                        <img class="icon-img" src="images/mobileapp.jpg" />
+                        <h5>Mobile App Development</h5>
+                        <p>
+                          A small river named Duden flows by their place and
+                          supplies it with the necessary
+                        </p>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="ab-item">
+                        <img class="icon-img" src="images/database.jpg" />
+                        <h5>Database Design</h5>
+                        <p>
+                          A small river named Duden flows by their place and
+                          supplies it with the necessary
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="gallery section-heigh" id="gallery">
+                  <h2>Some Happy Moments</h2>
+                  <div class="col-md-12">
+                    <div class="slide-wrapper">
+                      <ul class="slider-img">
+                        <li><img src="images/slider-1.jpg" alt="" /></li>
+                        <li><img src="images/slider-2.jpg" alt="" /></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="contact section-heigh" id="contact">
+                  <div class="col-md-12">
+                    <h2>Contact Detail</h2>
+                    <div class="contact-form">
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Pls enter your name"
+                          name="full_name"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Pls enter your email"
+                          name="email"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Pls Enter your contact number"
+                          name="mobile"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <textarea
+                          name="message"
+                          placeholder="Pls enter your message"
+                          class="form-control"
+                        ></textarea>
+                      </div>
+                      <button type="submit" class="btn btn-primary">
+                        Send
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="col-md-6">
-                <div class="ab-item">
-                  <img class="icon-img" src="images/dubail.jpg" />
-                  <h5>Frontend Development</h5>
-                  <p>
-                    A small river named Duden flows by their place and supplies
-                    it with the necessary
-                  </p>
-                  
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="ab-item">
-                  <img class="icon-img" src="images/honeymoon.jpg" />
-                  <h5>Mobile App Development </h5>
-                  <p>
-                    A small river named Duden flows by their place and supplies
-                    it with the necessary
-                  </p>
-                 
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="ab-item">
-                  <img class="icon-img" src="images/offers.jpg" />
-                  <h5>Frontend Development</h5>
-                  <p>
-                    A small river named Duden flows by their place and supplies
-                    it with the necessary
-                  </p>
-                  
-                </div>
+            </div>
+            <div class="button-nav">
+              <div class="navigation-b">
+                <a href="#intro"><i class="fa fa-home"></i></a>
+                <a href="#about"><i class="fa-solid fa-address-card"></i></a>
+                <a href="#skills"><i class="fa fa-edit"></i></a>
+                <a href="#gallery"><i class="fa-solid fa-images"></i></a>
+                <a href="#contact"><i class="fa fa-phone"></i></a>
+                <a href="#intro"><i class="fa fa-home"></i></a>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-    
-    <script
-      type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.js"
-    ></script>
-    <script type="text/javascript" src="js/jquery-3.2.1.minn.js"></script>
+
+    <script>
+      $(document).ready(function(){
+        speechSynthesis.cancel();
+        $(".v-mute").hide();
+      })
+      function readText() {
+        $(".v-mute").show();
+        $(".v-speak").hide();
+        speechSynthesis.cancel(msg);
+        var msg = new SpeechSynthesisUtterance();
+        var voices = window.speechSynthesis.getVoices();
+        msg.voice = voices[5];
+        msg.text = "I am Sandip Jha. Software Developer. I love coding and learning new things. My passion lies in building web applications using PHP, Laravel Framework ,JavaScript,Bootstrap, jQuery, NodeJS, MySQL, Git, etc. I started my career in a Software company in 2017 as a Intern Software Developer than after i promoted as a Junior Software Developer. After worked there for 2 years In 2019 I joined a software company as a name Gamenic where I worked as a full stack developer in verity of languages Like: Laravel , Wordpres, Vue.js, React.js & Bootstrap etc. I am a self-taught programmer who loves to code. I believe that everyone has the potential to become a great coder. If you want to learn programming, I recommend you to first improve your passionate in programming.";
+        speechSynthesis.speak(msg);
+      }
+      function readTextCancel() {
+        speechSynthesis.cancel();
+        $(".v-speak").show();
+        $(".v-mute").hide();
+      }
+      
+      (function ($) {
+        $.fn.HrSlider = function (option) {
+          var defaults = {
+              speed: 600,
+              pause: 4000,
+              transition: "buttonslider",
+              imagewidth: $(window).width(),
+              imageheight: $(window).height(),
+              radius: 10,
+              autoslide: "",
+              autoButtonSlide: "on",
+            },
+            option = $.extend(defaults, option),
+            img = $(this).find("img");
+          img.css({
+            width: defaults.imagewidth,
+            height: defaults.imageheight,
+          });
+          defaults.speed >= defaults.pause
+            ? (defaults.speed = defaults.pause - 100)
+            : defaults.speed;
+          defaults.radius > 0 ? img.css("border-radius", defaults.radius) : 0;
+          // this is for auto slide
+          if (defaults.autoslide == "on") {
+            this.each(function () {
+              var $this = $(this),
+                children = $this.children();
+              $this.wrap('<div class="slider-wrap" />');
+              $this.css({
+                width: "9999999px",
+                position: "relative",
+                padding: 0,
+              });
+              if (defaults.transition === "slaidLeft") {
+                children.css({
+                  float: "left",
+                  "list-style": "none",
+                });
+                $(".slider-wrap").css({
+                  width: children.width(),
+                  height: children.height(),
+                  overflow: "hidden",
+                  margin: "auto",
+                });
+                slaidLeft();
+              } else if (defaults.transition === "slaidRight") {
+                $this.children().css({
+                  float: "left",
+                  "list-style": "none",
+                });
+                $(".slider-wrap").css({
+                  width: children.width(),
+                  height: children.height(),
+                  overflow: "hidden",
+                  margin: "auto",
+                });
+                slaidRight();
+              }
+              if (defaults.transition === "faid") {
+                children.css({
+                  width: $this.find("img").width(),
+                  position: "absolute",
+                  left: 0,
+                });
+                for (var i = children.length - 1, y = 0; i >= 0; i--, y++) {
+                  children.eq(y).css("z-index", i + 999999);
+                }
+                faid();
+              }
+              function faid() {
+                setInterval(function () {
+                  $this
+                    .children(":first")
+                    .animate({ opacity: 0 }, defaults.speed, function () {
+                      $this
+                        .children(":first")
+                        .css("opacity", "1")
+                        .css(
+                          "z-index",
+                          $this.children(":last").css("z-index") - 1
+                        )
+                        .appendTo($this);
+                    });
+                }, defaults.pause);
+              }
+              function slaidLeft() {
+                SL = setInterval(function () {
+                  $this.animate(
+                    { left: "-" + $this.parent().width() },
+                    defaults.speed,
+                    function () {
+                      $this.css("left", 0).children(":first").appendTo($this);
+                    }
+                  );
+                }, defaults.pause);
+              }
+              function slaidRight() {
+                for (var i = 0; i <= $this.children().length; i++) {
+                  $this
+                    .children()
+                    .eq(i)
+                    .css(
+                      "margin-left",
+                      "-" +
+                        (defaults.imagewidth * i + defaults.imagewidth) +
+                        "px"
+                    );
+                }
+                $this.children(":first").css("margin-left", "0");
+                var i = 1;
+                setInterval(function () {
+                  if (i <= children.length) {
+                    $this
+                      .children(":first")
+                      .animate(
+                        { "margin-left": defaults.imagewidth * i },
+                        defaults.speed
+                      );
+                  }
+                  i++;
+                  if (i === children.length) {
+                    i = 0;
+                    $this.children(":first").css("margin-left", "0");
+                  }
+                }, defaults.pause);
+              }
+            });
+          }
+          // when user can define button then it will create automatically
+
+          if (defaults.transition == "buttonslider") {
+            $($(this)).parent().css({
+              position: "relative",
+              margin: "auto",
+            });
+            $(
+              '<div class="navigation"><button type="button" data-dir="prev" name="prev">prev</button><button type="button" data-dir="next" name="next" >next</button></div>'
+            ).appendTo($(this));
+            $(".navigation").css({
+              position: "absolute",
+              left: "50%",
+              bottom: "-0%",
+              "margin-left": "-15%",
+            });
+            $("button").css({
+              padding: "10px 20px",
+              margin: "10px",
+              "border-radius": "10px",
+              border: "none",
+              outline: "none",
+              transition: "all 1s",
+              cursor: "pointer",
+            });
+            $(".navigation button").hover(
+              function () {
+                $(this).css({
+                  "background-color": "black",
+                  color: "#fff",
+                });
+              },
+              function () {
+                $(this).css({
+                  "background-color": "#fff",
+                  color: "black",
+                });
+              }
+            );
+            function Slider(slidcontainer, navigation) {
+              this.slidcontainer = slidcontainer;
+              this.navigation = navigation;
+              this.img = img;
+              this.imagewidth = defaults.imagewidth;
+              this.imageLenth = this.img.length;
+              this.current = 0;
+            }
+            Slider.prototype.transition = function (coords) {
+              this.slidcontainer.animate(
+                {
+                  "margin-left": coords || -(this.current * this.imagewidth),
+                },
+                defaults.speed
+              );
+            };
+            Slider.prototype.auto = function () {
+              var _this = this;
+              setInterval(function () {
+                _this.problem();
+              }, defaults.pause);
+            };
+            Slider.prototype.problem = function () {
+              this.current == this.imageLenth - 1
+                ? (this.current = 0)
+                : this.current++;
+              this.transition();
+            };
+            Slider.prototype.setcoordinet = function (dir) {
+              this.current += ~~(dir == "next") || -1;
+              this.current =
+                this.current < 0
+                  ? this.imageLenth - 1
+                  : this.current % this.imageLenth;
+              // return	this.current;
+              this.transition();
+            };
+            var containerStyle = $(this)
+                .parent()
+                .css({
+                  width: defaults.imagewidth,
+                  height: defaults.imageheight,
+                  overflow: "hidden",
+                })
+                .children()
+                .css({
+                  width: "1000000px",
+                  "list-style": "none",
+                  padding: 0,
+                  margin: 0,
+                })
+                .children()
+                .css({
+                  float: "left",
+                }),
+              buttonSlider = new Slider($(this), $(".navigation"));
+            defaults.autoButtonSlide == "on" ? buttonSlider.auto() : false;
+
+            buttonSlider.slidcontainer
+              .find("button")
+              .on("click", function () {
+                buttonSlider.setcoordinet($(this).data("dir"));
+              })
+              .stop(true, true);
+          } // button close
+        };
+      })(jQuery);
+      $("ul").HrSlider({
+        imagewidth: 500,
+        imageheight: 300,
+      });
+    </script>
   </body>
 </html>
