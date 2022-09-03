@@ -146,8 +146,18 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light {
   transform: translateX(-50%);
 }
 section {
-  background: red;
+  background: #000;
   margin-top: 0 !important;
+  background-image: url("./images/gamla.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position-y: 127%;
+  background-position-x: -6%;
+}
+.coffe-img {
+    position: fixed;
+    top: 51%;
+    right: -180px;
 }
 .introduction {
   text-align: center;
@@ -260,8 +270,14 @@ img.icon-img {
   text-transform: uppercase;
 }
 .left-side p {
-  color: #000;
+  color: #fff;
   font-size: 16px;
+}
+p {
+    color: #fff;
+}
+h5 {
+    color: #fff;
 }
 .left-side {
   border: 1px solid #1266f1;
@@ -270,6 +286,7 @@ img.icon-img {
   border-radius: 10px;
   background: #1266f169;
   color: #fff;
+  backdrop-filter: blur(10px) saturate(70%);
 }
 section#about p {
   color: #fff;
@@ -379,6 +396,10 @@ h2 {
     </style>
   </head>
   <body>
+    <div class="coffe-img">
+      <img src="images/coffe-img.png"/>
+    </div>
+
     <section>
       <div class="container">
         <div class="row_wrapp">
@@ -391,9 +412,10 @@ h2 {
                   <h5 style="font-weight: 300; text-transform: uppercase">
                     Web & Mobile App Developer
                   </h5>
-                  <a class="btn btn-primary" href="#about"
+                  <!-- <a class="btn btn-primary" href="#about"
                     >View More <i class="fa-solid fa-arrow-down"></i
-                  ></a>
+                  ></a> -->
+                  
                 </div>
                 <div class="about section-heigh" id="about">
                   <div class="row">
@@ -563,7 +585,7 @@ h2 {
         speechSynthesis.cancel(msg);
         var msg = new SpeechSynthesisUtterance();
         var voices = window.speechSynthesis.getVoices();
-        msg.voice = voices[5];
+        msg.voice = voices[100];
         msg.text = "I am Sandip Jha. Software Developer. I love coding and learning new things. My passion lies in building web applications using PHP, Laravel Framework ,JavaScript,Bootstrap, jQuery, NodeJS, MySQL, Git, etc. I started my career in a Software company in 2017 as a Intern Software Developer than after i promoted as a Junior Software Developer. After worked there for 2 years In 2019 I joined a software company as a name Gamenic where I worked as a full stack developer in verity of languages Like: Laravel , Wordpres, Vue.js, React.js & Bootstrap etc. I am a self-taught programmer who loves to code. I believe that everyone has the potential to become a great coder. If you want to learn programming, I recommend you to first improve your passionate in programming.";
         speechSynthesis.speak(msg);
       }
