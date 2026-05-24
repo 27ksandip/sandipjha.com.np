@@ -1,838 +1,630 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Welcome To Sandip Jha</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sandip Jha — Full Stack Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
-    />
-    <script type="text/javascript" src="css\js\jquery-3.2.1.minn.js"></script>
+    :root {
+      --bg: #0d0d0d;
+      --surface: #161616;
+      --card: #1e1e1e;
+      --gold: #c9a84c;
+      --gold-light: #e8c97a;
+      --text: #e8e6e0;
+      --muted: #888880;
+      --border: #2a2a2a;
+    }
 
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    html { scroll-behavior: smooth; }
 
-    <!-- Font Awesome -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      rel="stylesheet"
-    />
-    <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-      rel="stylesheet"
-    />
-    <!-- MDB -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.css"
-      rel="stylesheet"
-    />
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
 
-    <link rel="stylesheet" href="style.css" />
-    <style>
-      *,
-::after,
-::before {
-  padding: 0;
-  margin: 0;
-  box-sizing: inherit;
-}
-a:focus,
-.button:focus,
-button:focus,
-textarea,
-.btn:focus,
-a:hover,
-a:focus {
-  outline: none;
-  box-shadow: unset !important;
-}
-ul,
-li,
-a,
-ul,
-li,
-a:hover,
-a:hover,
-a:focus {
-  list-style: none;
-  text-decoration: none;
-}
-html {
-  height: 100%;
-  overflow-x: hidden !important;
-  scroll-behavior: smooth !important;
-}
-body {
-  font-size: 17px;
-  font-weight: 400;
-  font-style: normal;
-  box-sizing: border-box;
-  transition: 0.3 !important;
-  font-family: "Open Sans";
-  padding: 0 !important;
-  margin: 0 !important;
-  overflow-x: hidden;
-  font-family: "Roboto", sans-serif;
-}
-input,
-textarea,
-select {
-  font-family: "Nunito", sans-serif;
-  box-shadow: unset !important;
-}
-a,
-input,
-button,
-textarea,
-select {
-  outline: none !important;
-  cursor: pointer;
-}
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.4rem 4rem;
+      background: rgba(13,13,13,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.02em;
+    }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--gold); }
 
-.navbar-nav {
-  display: flex;
-  justify-content: end;
-  width: 100%;
-}
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 8rem 4rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: -20%; right: -10%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 4rem; }
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 0.35rem 1rem;
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.2s forwards;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 7vw, 6rem);
+      font-weight: 900;
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.4s forwards;
+    }
+    .hero h1 span { color: var(--gold); }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 540px;
+      margin-bottom: 3rem;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.6s forwards;
+    }
+    .hero-cta {
+      display: flex; gap: 1.2rem; flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.8s forwards;
+    }
+    .btn-primary, .btn-outline {
+      padding: 0.85rem 2.2rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: all 0.3s;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--gold);
+      color: #0d0d0d;
+    }
+    .btn-primary:hover { background: var(--gold-light); }
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: transparent;
+    }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
 
-nav.navbar.navbar-expand-lg.navbar-light.bg-light {
-  background: transparent !important;
-  z-index: 9;
-  box-shadow: unset;
-}
-.navbar-nav a {
-  color: #fff !important;
-  text-transform: uppercase;
-}
-.row_wrapp {
-  background-image: url("./images/laptopimg-without-bg.png");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  height: 100vh;
-  position: relative;
-  overflow: hidden;
-}
-.content-inner {
-  position: absolute;
-  width: 76.5%;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  top: 50px;
-  height: 83vh;
-  color: #fff;
-  padding: 10px;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-}
-.navigation-b {
-  background: #6d7fb285;
-  line-height: 55px;
-  border-radius: 20px;
-}
-.button-nav {
-  position: fixed;
-  bottom: 78px;
-  text-align: center;
-  width: 35%;
-  left: 50%;
-  z-index: 999;
-  transform: translateX(-50%);
-}
-section {
-  background: #000;
-  margin-top: 0 !important;
-  background-image: url("./images/gamla.png");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position-y: 127%;
-  background-position-x: -6%;
-}
-.coffe-img {
-    position: fixed;
-    top: 51%;
-    right: -180px;
-}
-.introduction {
-  text-align: center;
-}
-.introduction img {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-.section-heigh {
-  height: 100vh;
-  padding-top: 40px;
-}
-p {
-  font-size: 14px;
-  font-weight: 400;
-}
-h2 {
-  font-size: 24px;
-  text-transform: uppercase;
-  text-align: center;
-  padding-top: 15px;
-  font-weight: 300;
-}
+    .hero-number {
+      position: absolute; right: 4rem; bottom: 3rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 10rem;
+      font-weight: 900;
+      color: rgba(201,168,76,0.04);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
 
-.ab-img img {
-  width: 100%;
-  border-radius: 20px;
-}
+    /* HERO PHOTO */
+    .hero-content { flex: 1; }
+    .hero-photo-wrap {
+      flex-shrink: 0;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 1s forwards;
+    }
+    .hero-photo-frame {
+      position: relative;
+      width: 320px; height: 380px;
+    }
+    .hero-photo-frame::before {
+      content: '';
+      position: absolute;
+      top: 14px; left: 14px;
+      width: 100%; height: 100%;
+      border: 2px solid var(--gold);
+      border-radius: 4px;
+      z-index: 0;
+    }
+    .hero-photo-frame img {
+      position: relative; z-index: 1;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: top;
+      border-radius: 4px;
+      filter: grayscale(20%);
+      transition: filter 0.4s;
+    }
+    .hero-photo-frame:hover img { filter: grayscale(0%); }
 
-.main-title {
-  color: #54a4c4;
-  text-transform: uppercase;
-  font-size: 24px;
-  font-weight: 700;
-}
+    /* DIVIDER */
+    .section-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0 4rem;
+    }
 
-p {
-  font-size: 14px;
-  font-weight: 400;
-  color: #000;
-}
-.second-img {
-  position: absolute;
-  left: 220px;
-  top: -112px;
-  width: 350px;
-  height: 350px;
-  object-fit: contain;
-}
-.img-wrapper {
-  position: relative;
-  margin-top: 110px;
-}
-.img img {
-  border-radius: 20px;
-}
-.img-responsive.second-img img {
-  width: 307px;
-  box-shadow: -4px 5px 5px 0 rgb(0 0 0/75%);
-  -webkit-box-shadow: -4px 5px 5px 0 rgb(0 0 0/75%);
-  -moz-box-shadow: -4px 5px 5px 0 rgba(0, 0, 0, 0.75);
-}
-.img.img-wrapper.right-side .second-img {
-  left: -120px;
-}
-.about-content h2 {
-  text-align: center;
-}
-.about-content {
-  margin-top: 120px;
-}
-section#about {
-  margin-top: 0;
-  background: #000;
-  padding-top: 50px;
-  padding-bottom: 50px;
-}
-img.icon-img {
-  height: 100px;
-  width: 100px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-.ab-item {
-  text-align: center;
-  margin-bottom: 15px;
-  border: 1px solid #1266f1;
-  padding: 15px;
-  box-shadow: 0 2px 5px 0 rgb(0 0 0/16%), 0 2px 10px 0 rgb(0 0 0/12%);
-  border-radius: 10px;
-  background: #1266f169;
-  color: #000;
-  text-transform: uppercase;
-}
-.img-responsive.third-img img {
-  width: 300px;
-  box-shadow: -4px 5px 5px 0 rgb(0 0 0/75%);
-  -webkit-box-shadow: -4px 5px 5px 0 rgb(0 0 0/75%);
-  -moz-box-shadow: -4px 5px 5px 0 rgba(0, 0, 0, 0.75);
-}
-.img-responsive.third-img {
-  position: absolute;
-  right: 0;
-  bottom: -125px;
-}
-.left-side h5 {
-  font-size: 18px;
-  text-transform: uppercase;
-}
-.left-side p {
-  color: #fff;
-  font-size: 16px;
-}
-p {
-    color: #fff;
-}
-h5 {
-    color: #fff;
-}
-.left-side {
-  border: 1px solid #1266f1;
-  padding: 15px;
-  box-shadow: 0 2px 5px 0 rgb(0 0 0/16%), 0 2px 10px 0 rgb(0 0 0/12%);
-  border-radius: 10px;
-  background: #1266f169;
-  color: #fff;
-  backdrop-filter: blur(10px) saturate(70%);
-}
-section#about p {
-  color: #fff;
-}
-section#about h5 {
-  color: #fff;
-}
-.contact-form {
-  width: 400px;
-  margin: 0 auto;
-  border: 1px solid #1266f1;
-  padding: 15px;
-  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
-  border-radius: 10px;
-  background: #1266f169;
-}
-.contact-form input {
-  font-size: 13px;
-  text-transform: capitalize;
-  border: 0px solid #1266f1;
-}
-textarea.form-control {
-  font-size: 13px;
-}
-input.form-control::placeholder {
-  color: #000;
-  font-family: "Roboto", sans-serif;
-}
-textarea.form-control::placeholder {
-  color: #000;
-  font-family: "Roboto", sans-serif;
-}
-.slide-wrapper {
-  border: 1px solid #1266f1;
-  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
-  border-radius: 10px;
-  background: #1266f169;
-}
-.slide-wrapper img {
-  object-fit: contain;
-}
-.navigation {
-  display: none;
-}
-.navigation-b a {
-  color: #fff;
-  padding: 10px;
-  font-size: 20px;
-  background: #222163;
-  border-radius: 5px;
-}
-.content-inner::-webkit-scrollbar {
-  width: 0;
-}
+    /* SECTIONS */
+    section { padding: 6rem 4rem; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 3rem;
+      line-height: 1.2;
+    }
 
-.content-inner::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-}
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .about-text p { color: var(--muted); margin-bottom: 1.2rem; font-size: 1rem; }
+    .about-text p:last-child { margin-bottom: 0; }
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .stat-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 1.8rem;
+      border-radius: 4px;
+    }
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .stat-label { font-size: 0.8rem; color: var(--muted); letter-spacing: 0.05em; }
 
-.content-inner::-webkit-scrollbar-thumb {
-  background-color: darkgrey;
-  outline: 1px solid slategrey;
-}
-i.fa-solid.fa-circle-play{
-    color: #fff;
-    font-size: 20px;
-}
-@media screen and (max-width: 767px) {
-  .row_wrapp {
-    background-size: 100% 100%;
-}
-.button-nav {
-    width: 55%;
-    top: 75%;
-}
-.section-heigh {
-    padding-top: 0px;
-}
-.ab-img img {
-    width: 55%;
-    border-radius: 20px;
-    height: 100px;
-    text-align: center;
-    display: flex;
-    margin: 0 auto;
-}
-.left-side {
-    margin-top: 10px;
-}
-h2 {
-    font-size: 14px;
-}
-.left-side p {
-    font-size: 11px;
-}
-.contact-form {
-    width: 100%;
-}
-.skills h5 {
-    font-size: 14px;
-}
-.ab-item img {
-    height: 50px;
-    width: 50px;
-}
-}
-    </style>
-  </head>
-  <body>
-    <div class="coffe-img">
-      <img src="images/coffe-img.png"/>
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .skill-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2rem;
+      transition: border-color 0.3s, transform 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .skill-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0;
+      width: 3px; height: 0;
+      background: var(--gold);
+      transition: height 0.4s ease;
+    }
+    .skill-card:hover::before { height: 100%; }
+    .skill-card:hover { border-color: rgba(201,168,76,0.3); transform: translateY(-3px); }
+    .skill-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .skill-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+    }
+    .skill-desc { color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.2rem; }
+    .tag {
+      font-size: 0.72rem;
+      padding: 0.25rem 0.7rem;
+      background: rgba(201,168,76,0.1);
+      color: var(--gold);
+      border-radius: 2px;
+      letter-spacing: 0.05em;
+    }
+
+    /* EXPERIENCE */
+    .timeline { position: relative; }
+    .timeline::before {
+      content: '';
+      position: absolute; left: 0; top: 0; bottom: 0;
+      width: 1px; background: var(--border);
+    }
+    .timeline-item {
+      padding-left: 2.5rem;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute; left: -4px; top: 0.5rem;
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 2px solid var(--bg);
+    }
+    .timeline-year {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+    .timeline-role {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+    .timeline-company { color: var(--muted); font-size: 0.9rem; margin-bottom: 0.8rem; }
+    .timeline-desc { color: var(--muted); font-size: 0.9rem; }
+
+    /* CONTACT */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .contact-info p { color: var(--muted); margin-bottom: 2rem; }
+    .contact-link {
+      display: flex; align-items: center; gap: 1rem;
+      text-decoration: none;
+      color: var(--text);
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      transition: color 0.3s;
+    }
+    .contact-link:hover { color: var(--gold); }
+    .contact-link-icon { color: var(--gold); font-size: 1rem; }
+    .contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+    .form-group label { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+    .form-group input,
+    .form-group textarea {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      padding: 0.85rem 1rem;
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.3s;
+      resize: vertical;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus { border-color: var(--gold); }
+    .form-group textarea { min-height: 130px; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 4rem 4rem 3rem;
+      text-align: center;
+    }
+    .footer-inner {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2rem;
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+    .footer-tagline {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+    .footer-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.88rem;
+      transition: color 0.3s;
+    }
+    .footer-link:hover { color: var(--gold); }
+    .footer-copy {
+      margin-top: 1rem;
+      font-size: 0.75rem;
+      color: #555;
+      letter-spacing: 0.05em;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero, section { padding: 5rem 1.5rem 3rem; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-stats { grid-template-columns: 1fr 1fr; }
+      section { padding: 4rem 1.5rem; }
+      footer { padding: 3rem 1.5rem 2rem; }
+      .section-divider { margin: 0 1.5rem; }
+      .hero-number { display: none; }
+      .hero-inner { flex-direction: column-reverse; gap: 2rem; }
+      .hero-photo-frame { width: 220px; height: 260px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">SJ.</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="mailto:kumarjsandip@gmail.com">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-tag">Available for freelance work</div>
+        <h1>Sandip<br><span>Jha.</span></h1>
+        <p class="hero-sub">Full Stack Developer crafting robust web applications with PHP, Laravel, JavaScript & modern frameworks — turning ideas into elegant, performant code.</p>
+        <div class="hero-cta">
+          <a href="mailto:kumarjsandip@gmail.com" class="btn-primary">Get in Touch</a>
+          <a href="#skills" class="btn-outline">View My Work</a>
+        </div>
+      </div>
+      <div class="hero-photo-wrap">
+        <div class="hero-photo-frame">
+          <img src="images/sandip.jpg" alt="Sandip Jha" />
+        </div>
+      </div>
     </div>
+    <div class="hero-number">9+</div>
+  </section>
 
-    <section>
-      <div class="container">
-        <div class="row_wrapp">
-          <div class="content-inner">
-            <div class="row">
-              <div class="col-md-12">
-                <div class="introduction section-heigh" id="intro">
-                  <img src="images/sandip-top-img.jpg" />
-                  <h2>Sandip Jha</h2>
-                  <h5 style="font-weight: 300; text-transform: uppercase">
-                    Web & Mobile App Developer
-                  </h5>
-                  <!-- <a class="btn btn-primary" href="#about"
-                    >View More <i class="fa-solid fa-arrow-down"></i
-                  ></a> -->
-                  
-                </div>
-                <div class="about section-heigh" id="about">
-                  <div class="row">
-                    <h2>About Me</h2>
-                    <div class="col-md-5">
-                      <div class="ab-img">
-                        <img src="images/sandip.jpg" />
-                      </div>
-                    </div>
-                    <div class="col-md-7">
-                      <div class="left-side">
-                        <!-- <h5>Who I am</h5> -->
-                        <p>
-                          I am Sandip Jha. Software Developer. I love coding and
-                          learning new things. My passion lies in building web
-                          applications using PHP, Laravel Framework
-                          ,JavaScript,Bootstrap, jQuery, NodeJS, MySQL, Git,
-                          etc.
-                        </p>
-                        <p></p>
-                        <p>
-                          I started my career in a Software company in 2017 as a
-                          Intern Software Developer than after i promoted as a
-                          Junior Software Developer. After worked there for 2
-                          years In 2019 I joined a software company as a name
-                          Gamenic where I worked as a full stack developer in
-                          verity of languages Like: Laravel , Wordpres, Vue.js,
-                          React.js & Bootstrap etc.
-                        </p>
-                        <p>
-                          I am a self-taught programmer who loves to code. I
-                          believe that everyone has the potential to become a
-                          great coder. If you want to learn programming, I
-                          recommend you to first improve your passionate in
-                          programming.  <span>
-                            <i onclick="readText()" class="v-speak fa-solid fa-volume-high"></i>
-                            <i onclick="readTextCancel()" class="fa-solid fa-volume-xmark v-mute"></i>
-                          </span>
-                        </p>
-                       
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="skills section-heigh" id="skills">
-                  <div class="row">
-                    <h2>Skills & Experienced</h2>
-                    <div class="col-md-6">
-                      <div class="ab-item">
-                        <img class="icon-img" src="images/backendpng.png" />
-                        <h5>BackEnd Development</h5>
-                        <p>
-                          I am exprienced In php, Laravel Framework, Node Js &
-                          Agro
-                        </p>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="ab-item">
-                        <img class="icon-img" src="images/frontend-dev.jpeg" />
-                        <h5>Frontend Development</h5>
-                        <p>
-                          A small river named Duden flows by their place and
-                          supplies it with the necessary
-                        </p>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="ab-item">
-                        <img class="icon-img" src="images/mobileapp.jpg" />
-                        <h5>Mobile App Development</h5>
-                        <p>
-                          A small river named Duden flows by their place and
-                          supplies it with the necessary
-                        </p>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="ab-item">
-                        <img class="icon-img" src="images/database.jpg" />
-                        <h5>Database Design</h5>
-                        <p>
-                          A small river named Duden flows by their place and
-                          supplies it with the necessary
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="gallery section-heigh" id="gallery">
-                  <h2>Some Happy Moments</h2>
-                  <div class="col-md-12">
-                    <div class="slide-wrapper">
-                      <ul class="slider-img">
-                        <li><img src="images/slider-1.jpg" alt="" /></li>
-                        <li><img src="images/slider-2.jpg" alt="" /></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="contact section-heigh" id="contact">
-                  <div class="col-md-12">
-                    <h2>Contact Detail</h2>
-                    <div class="contact-form">
-                      <div class="form-group">
-                        <input
-                          type="text"
-                          class="form-control"
-                          placeholder="Pls enter your name"
-                          name="full_name"
-                        />
-                      </div>
-                      <div class="form-group">
-                        <input
-                          type="text"
-                          class="form-control"
-                          placeholder="Pls enter your email"
-                          name="email"
-                        />
-                      </div>
-                      <div class="form-group">
-                        <input
-                          type="text"
-                          class="form-control"
-                          placeholder="Pls Enter your contact number"
-                          name="mobile"
-                        />
-                      </div>
-                      <div class="form-group">
-                        <textarea
-                          name="message"
-                          placeholder="Pls enter your message"
-                          class="form-control"
-                        ></textarea>
-                      </div>
-                      <button type="submit" class="btn btn-primary">
-                        Send
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="button-nav">
-              <div class="navigation-b">
-                <a href="#intro"><i class="fa fa-home"></i></a>
-                <a href="#about"><i class="fa-solid fa-address-card"></i></a>
-                <a href="#skills"><i class="fa fa-edit"></i></a>
-                <a href="#gallery"><i class="fa-solid fa-images"></i></a>
-                <a href="#contact"><i class="fa fa-phone"></i></a>
-                <a href="#intro"><i class="fa fa-home"></i></a>
-              </div>
-            </div>
+  <hr class="section-divider"/>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-inner">
+      <div class="section-label">Who I Am</div>
+      <h2 class="section-title reveal">Passionate Coder,<br>Lifelong Learner</h2>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>I'm Sandip Jha, a self-taught full stack developer who started my journey in 2017 as an intern and grew through dedication and passion for clean, functional code.</p>
+          <p>I believe everyone has the potential to become a great coder. If you want to learn programming, the first step is to cultivate genuine passion — everything else follows.</p>
+          <p>Currently building powerful web experiences with Laravel, Vue.js, React.js, and Node.js, while always staying curious about what comes next.</p>
+        </div>
+        <div class="about-stats reveal">
+          <div class="stat-card">
+            <div class="stat-number">6+</div>
+            <div class="stat-label">Years of Experience</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">2</div>
+            <div class="stat-label">Companies Worked At</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">4</div>
+            <div class="stat-label">Core Specializations</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">∞</div>
+            <div class="stat-label">Curiosity for Learning</div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <script>
-      $(document).ready(function(){
-        speechSynthesis.cancel();
-        $(".v-mute").hide();
-      })
-      function readText() {
-        $(".v-mute").show();
-        $(".v-speak").hide();
-        speechSynthesis.cancel(msg);
-        var msg = new SpeechSynthesisUtterance();
-        var voices = window.speechSynthesis.getVoices();
-        msg.voice = voices[100];
-        msg.text = "I am Sandip Jha. Software Developer. I love coding and learning new things. My passion lies in building web applications using PHP, Laravel Framework ,JavaScript,Bootstrap, jQuery, NodeJS, MySQL, Git, etc. I started my career in a Software company in 2017 as a Intern Software Developer than after i promoted as a Junior Software Developer. After worked there for 2 years In 2019 I joined a software company as a name Gamenic where I worked as a full stack developer in verity of languages Like: Laravel , Wordpres, Vue.js, React.js & Bootstrap etc. I am a self-taught programmer who loves to code. I believe that everyone has the potential to become a great coder. If you want to learn programming, I recommend you to first improve your passionate in programming.";
-        speechSynthesis.speak(msg);
-      }
-      function readTextCancel() {
-        speechSynthesis.cancel();
-        $(".v-speak").show();
-        $(".v-mute").hide();
-      }
-      
-      (function ($) {
-        $.fn.HrSlider = function (option) {
-          var defaults = {
-              speed: 600,
-              pause: 4000,
-              transition: "buttonslider",
-              imagewidth: $(window).width(),
-              imageheight: $(window).height(),
-              radius: 10,
-              autoslide: "",
-              autoButtonSlide: "on",
-            },
-            option = $.extend(defaults, option),
-            img = $(this).find("img");
-          img.css({
-            width: defaults.imagewidth,
-            height: defaults.imageheight,
-          });
-          defaults.speed >= defaults.pause
-            ? (defaults.speed = defaults.pause - 100)
-            : defaults.speed;
-          defaults.radius > 0 ? img.css("border-radius", defaults.radius) : 0;
-          // this is for auto slide
-          if (defaults.autoslide == "on") {
-            this.each(function () {
-              var $this = $(this),
-                children = $this.children();
-              $this.wrap('<div class="slider-wrap" />');
-              $this.css({
-                width: "9999999px",
-                position: "relative",
-                padding: 0,
-              });
-              if (defaults.transition === "slaidLeft") {
-                children.css({
-                  float: "left",
-                  "list-style": "none",
-                });
-                $(".slider-wrap").css({
-                  width: children.width(),
-                  height: children.height(),
-                  overflow: "hidden",
-                  margin: "auto",
-                });
-                slaidLeft();
-              } else if (defaults.transition === "slaidRight") {
-                $this.children().css({
-                  float: "left",
-                  "list-style": "none",
-                });
-                $(".slider-wrap").css({
-                  width: children.width(),
-                  height: children.height(),
-                  overflow: "hidden",
-                  margin: "auto",
-                });
-                slaidRight();
-              }
-              if (defaults.transition === "faid") {
-                children.css({
-                  width: $this.find("img").width(),
-                  position: "absolute",
-                  left: 0,
-                });
-                for (var i = children.length - 1, y = 0; i >= 0; i--, y++) {
-                  children.eq(y).css("z-index", i + 999999);
-                }
-                faid();
-              }
-              function faid() {
-                setInterval(function () {
-                  $this
-                    .children(":first")
-                    .animate({ opacity: 0 }, defaults.speed, function () {
-                      $this
-                        .children(":first")
-                        .css("opacity", "1")
-                        .css(
-                          "z-index",
-                          $this.children(":last").css("z-index") - 1
-                        )
-                        .appendTo($this);
-                    });
-                }, defaults.pause);
-              }
-              function slaidLeft() {
-                SL = setInterval(function () {
-                  $this.animate(
-                    { left: "-" + $this.parent().width() },
-                    defaults.speed,
-                    function () {
-                      $this.css("left", 0).children(":first").appendTo($this);
-                    }
-                  );
-                }, defaults.pause);
-              }
-              function slaidRight() {
-                for (var i = 0; i <= $this.children().length; i++) {
-                  $this
-                    .children()
-                    .eq(i)
-                    .css(
-                      "margin-left",
-                      "-" +
-                        (defaults.imagewidth * i + defaults.imagewidth) +
-                        "px"
-                    );
-                }
-                $this.children(":first").css("margin-left", "0");
-                var i = 1;
-                setInterval(function () {
-                  if (i <= children.length) {
-                    $this
-                      .children(":first")
-                      .animate(
-                        { "margin-left": defaults.imagewidth * i },
-                        defaults.speed
-                      );
-                  }
-                  i++;
-                  if (i === children.length) {
-                    i = 0;
-                    $this.children(":first").css("margin-left", "0");
-                  }
-                }, defaults.pause);
-              }
-            });
-          }
-          // when user can define button then it will create automatically
+  <hr class="section-divider"/>
 
-          if (defaults.transition == "buttonslider") {
-            $($(this)).parent().css({
-              position: "relative",
-              margin: "auto",
-            });
-            $(
-              '<div class="navigation"><button type="button" data-dir="prev" name="prev">prev</button><button type="button" data-dir="next" name="next" >next</button></div>'
-            ).appendTo($(this));
-            $(".navigation").css({
-              position: "absolute",
-              left: "50%",
-              bottom: "-0%",
-              "margin-left": "-15%",
-            });
-            $("button").css({
-              padding: "10px 20px",
-              margin: "10px",
-              "border-radius": "10px",
-              border: "none",
-              outline: "none",
-              transition: "all 1s",
-              cursor: "pointer",
-            });
-            $(".navigation button").hover(
-              function () {
-                $(this).css({
-                  "background-color": "black",
-                  color: "#fff",
-                });
-              },
-              function () {
-                $(this).css({
-                  "background-color": "#fff",
-                  color: "black",
-                });
-              }
-            );
-            function Slider(slidcontainer, navigation) {
-              this.slidcontainer = slidcontainer;
-              this.navigation = navigation;
-              this.img = img;
-              this.imagewidth = defaults.imagewidth;
-              this.imageLenth = this.img.length;
-              this.current = 0;
-            }
-            Slider.prototype.transition = function (coords) {
-              this.slidcontainer.animate(
-                {
-                  "margin-left": coords || -(this.current * this.imagewidth),
-                },
-                defaults.speed
-              );
-            };
-            Slider.prototype.auto = function () {
-              var _this = this;
-              setInterval(function () {
-                _this.problem();
-              }, defaults.pause);
-            };
-            Slider.prototype.problem = function () {
-              this.current == this.imageLenth - 1
-                ? (this.current = 0)
-                : this.current++;
-              this.transition();
-            };
-            Slider.prototype.setcoordinet = function (dir) {
-              this.current += ~~(dir == "next") || -1;
-              this.current =
-                this.current < 0
-                  ? this.imageLenth - 1
-                  : this.current % this.imageLenth;
-              // return	this.current;
-              this.transition();
-            };
-            var containerStyle = $(this)
-                .parent()
-                .css({
-                  width: defaults.imagewidth,
-                  height: defaults.imageheight,
-                  overflow: "hidden",
-                })
-                .children()
-                .css({
-                  width: "1000000px",
-                  "list-style": "none",
-                  padding: 0,
-                  margin: 0,
-                })
-                .children()
-                .css({
-                  float: "left",
-                }),
-              buttonSlider = new Slider($(this), $(".navigation"));
-            defaults.autoButtonSlide == "on" ? buttonSlider.auto() : false;
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-inner">
+      <div class="section-label">What I Do</div>
+      <h2 class="section-title reveal">Areas of Expertise</h2>
+      <div class="skills-grid">
+        <div class="skill-card reveal">
+          <div class="skill-icon">⚙️</div>
+          <div class="skill-title">Backend Development</div>
+          <p class="skill-desc">Building robust, scalable server-side systems with clean architecture and optimized database design.</p>
+          <div class="skill-tags">
+            <span class="tag">PHP</span>
+            <span class="tag">Laravel</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">REST APIs</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <div class="skill-icon">🎨</div>
+          <div class="skill-title">Frontend Development</div>
+          <p class="skill-desc">Creating responsive, interactive interfaces that are both beautiful and performant across all devices.</p>
+          <div class="skill-tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">Vue.js</span>
+            <span class="tag">React.js</span>
+            <span class="tag">Bootstrap</span>
+            <span class="tag">jQuery</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <div class="skill-icon">📱</div>
+          <div class="skill-title">Mobile App Development</div>
+          <p class="skill-desc">Developing cross-platform mobile applications with modern tools that deliver native-like experiences.</p>
+          <div class="skill-tags">
+            <span class="tag">React Native</span>
+            <span class="tag">PWA</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <div class="skill-icon">🗄️</div>
+          <div class="skill-title">Database Design</div>
+          <p class="skill-desc">Designing efficient, normalized database schemas with a focus on performance, integrity, and scalability.</p>
+          <div class="skill-tags">
+            <span class="tag">MySQL</span>
+            <span class="tag">Schema Design</span>
+            <span class="tag">Query Optimization</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            buttonSlider.slidcontainer
-              .find("button")
-              .on("click", function () {
-                buttonSlider.setcoordinet($(this).data("dir"));
-              })
-              .stop(true, true);
-          } // button close
-        };
-      })(jQuery);
-      $("ul").HrSlider({
-        imagewidth: 500,
-        imageheight: 300,
+  <hr class="section-divider"/>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-inner">
+      <div class="section-label">My Journey</div>
+      <h2 class="section-title reveal">Career Timeline</h2>
+      <div class="timeline">
+        <div class="timeline-item reveal">
+          <div class="timeline-year">2019 — Present</div>
+          <div class="timeline-role">Full Stack Developer</div>
+          <div class="timeline-company">Gamenic</div>
+          <p class="timeline-desc">Working across a variety of technologies including Laravel, WordPress, Vue.js, React.js, and Bootstrap. Delivering full stack solutions for diverse client projects and internal products.</p>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-year">2018 — 2019</div>
+          <div class="timeline-role">Junior Software Developer</div>
+          <div class="timeline-company">Software Company (Previous)</div>
+          <p class="timeline-desc">Promoted from intern to junior developer after demonstrating strong skills and dedication. Built and maintained web applications while sharpening core programming fundamentals.</p>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-year">2017 — 2018</div>
+          <div class="timeline-role">Intern Software Developer</div>
+          <div class="timeline-company">Software Company (Previous)</div>
+          <p class="timeline-desc">Started my professional journey as an intern — learning, building, and discovering a deep love for software development that continues to drive me every day.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">Sandip Jha.</div>
+      <p class="footer-tagline">Full Stack Developer — building the web, one line at a time.</p>
+      <div class="footer-links">
+        <a href="mailto:kumarjsandip@gmail.com" class="footer-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+          kumarjsandip@gmail.com
+        </a>
+        <a href="https://www.linkedin.com/in/jhasandip/" target="_blank" class="footer-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          linkedin.com/in/jhasandip
+        </a>
+        <a href="https://github.com/27ksandip" target="_blank" class="footer-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          github.com/27ksandip
+        </a>
+      </div>
+      <div class="footer-copy">© 2024 Sandip Jha · Crafted with passion for code</div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 80);
+          observer.unobserve(e.target);
+        }
       });
-    </script>
-  </body>
+    }, { threshold: 0.12 });
+    reveals.forEach(el => observer.observe(el));
+
+    // Form submit
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('button');
+      btn.textContent = 'Message Sent ✓';
+      btn.style.background = '#2a6e4e';
+      btn.style.color = '#fff';
+      setTimeout(() => {
+        btn.textContent = 'Send Message';
+        btn.style.background = '';
+        btn.style.color = '';
+        e.target.reset();
+      }, 3000);
+    }
+  </script>
+</body>
 </html>
